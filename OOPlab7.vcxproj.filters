@@ -18,5 +18,19 @@
     <ClCompile Include="OOPlab7.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Slinkedlist.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Nodes.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Nodes.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Slinkedlist.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
