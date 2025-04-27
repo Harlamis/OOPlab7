@@ -133,6 +133,7 @@
     <ClCompile Include="Nodes.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Dlinkedlist.h" />
     <ClInclude Include="Slinkedlist.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

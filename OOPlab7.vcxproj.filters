@@ -32,5 +32,8 @@
     <ClInclude Include="Slinkedlist.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Dlinkedlist.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

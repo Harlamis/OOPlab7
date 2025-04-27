@@ -14,7 +14,7 @@ namespace dNode {
 	struct Dnode {
 		T data;
 		std::shared_ptr<Dnode<T>> nextNode;
-		std::weak_ptr<Dnode<T>> previousNode;
+		std::shared_ptr<Dnode<T>> previousNode;
 		Dnode(T& value) : data{ value }, nextNode{ nullptr }, previousNode{ nullptr } {};
 	};
 }
