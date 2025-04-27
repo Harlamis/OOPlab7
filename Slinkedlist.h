@@ -20,9 +20,9 @@ public:
 	};
 	void addE(const T& value) {
 		unique_ptr<Snode<T>> newNode = make_unique<Snode<T>>(value);
-		Snode* current = head.get();
+		Snode<T>* current = head.get();
 		if (!current) {
-			head = std::move(newNode);
+			head = move(newNode);
 			size++;
 			return;
 		}
@@ -33,7 +33,7 @@ public:
 		size++;
 	};
 	void addI(int index, const T& value) {
-		if (index < 0 || index >= size) {
+		if (index < 0 || index > size) {
 			throw std::out_of_range("Index out of range");
 		}
 			if (index == 0) {
@@ -41,13 +41,13 @@ public:
 				return;
 			}
 			else if (index == size) {
-				addE(value)
+				addE(value);
 				return;
 			}
 			else {
 				unique_ptr<Snode<T>> newNode = make_unique<Snode<T>>(value);
-				Snode* current = head.get();
-				for (int i; i < index - 1; i++) {
+				Snode<T>* current = head.get();
+				for (int i = 0; i < index - 1; i++) {
 					current = current->nextNode.get();
 				}
 				newNode->nextNode = move(current->nextNode);
@@ -61,20 +61,20 @@ public:
 		if (index < 0 || index >= size) {
 			throw std::out_of_range("Index out of range");
 		}
-		Snode* current = head.get();
+		Snode<T>* current = head.get();
 		for (int i = 0; i < index; i++) {
 			current = current->nextNode.get();
 		}
 		return current->data;
 	}
-	void rmB{
+	void rmB(){
 		if (!head) {
 		throw std::out_of_range("List is empty!");
 	}
-		head = std::move(head->nextNode);
+		head = move(head->nextNode);
 	--size;
-	}
-	void rmE{
+	};
+	void rmE(){
 		 if (!head) {
 		throw std::out_of_range("List is empty!");
 	}
@@ -83,15 +83,15 @@ public:
 		--size;
 		return;
 	}
-	Snode* current = head.get();
+	Snode<T>* current = head.get();
 	while (current->nextNode->nextNode) {
 		current = current->nextNode.get();
 	}
 	current->nextNode.reset();
 	--size;
 	}	
-	void rmI{
-		if (index < 0 || index >= size) {
+	void rmI(int index){
+		if (index == size - 1) {
 			throw std::out_of_range("Index out of range");
 		}
 		if (index == 0) {
@@ -99,10 +99,10 @@ public:
 			return;
 		}
 		else if (index == size) {
-			rmE()
+			rmE();
 			return;
 		}
-		Snode* current = head.get();
+		Snode<T>* current = head.get();
 		for (int i = 0; i < index - 1; i++) {
 			current = current->nextNode.get();
 		}
@@ -111,7 +111,7 @@ public:
 
 	}
 	bool search(const T& value) {
-		Snode* current = head.get();
+		Snode<T>* current = head.get();
 		while (current) {
 			if (current->data == value) {
 				return true;
@@ -123,8 +123,8 @@ public:
 	int getSize() {
 		return size;
 	}
-	friend ostream& operator<<(ostream& os, SL_list& obj) {
-		Snode* current = obj.head.get();
+	friend ostream& operator<<(ostream& os, const SL_list& obj) {
+		Snode<T>* current = obj.head.get();
 		os << "List data: " << endl;
 		while (current != nullptr) {
 			os << current->data << " ";
@@ -134,4 +134,4 @@ public:
 		return os;
 	}
 
-};
+	 };

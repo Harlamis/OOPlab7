@@ -5,7 +5,7 @@ namespace sNode {
 	struct Snode {
 		T data;
 		std::unique_ptr<Snode<T>> nextNode;
-		Snode(T& value) : data{ value }, nextNode{ nullptr } {};
+		Snode(const T& value) : data{ value }, nextNode{ nullptr } {};
 	};
 }
 
@@ -15,6 +15,6 @@ namespace dNode {
 		T data;
 		std::shared_ptr<Dnode<T>> nextNode;
 		std::shared_ptr<Dnode<T>> previousNode;
-		Dnode(T& value) : data{ value }, nextNode{ nullptr }, previousNode{ nullptr } {};
+		Dnode(const T& value) : data{ value }, nextNode{ nullptr }, previousNode{ nullptr } {};
 	};
 }
